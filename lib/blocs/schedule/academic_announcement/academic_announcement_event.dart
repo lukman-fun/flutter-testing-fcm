@@ -1,0 +1,3 @@
+abstract class AcademicAnnouncementEvent{}
+
+class OnGetAcademicAnnouncement extends AcademicAnnouncementEvent{}

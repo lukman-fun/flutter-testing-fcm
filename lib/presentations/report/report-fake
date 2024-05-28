@@ -1,0 +1,229 @@
+import 'package:flutter/material.dart';
+import 'package:testing/utils/ColorAsset.dart';
+
+class ReportPage extends StatefulWidget {
+  const ReportPage({super.key});
+
+  @override
+  State<ReportPage> createState() => _ReportPageState();
+}
+
+class _ReportPageState extends State<ReportPage> {
+  List<int> dest = [
+    1,
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Laporan'),
+        centerTitle: true,
+        backgroundColor: ColorAsset.GREEN,
+        elevation: 0,
+      ),
+      body: Column(
+        children: [
+          Container(
+            height: 100,
+            color: ColorAsset.GREEN,
+            child: Container(
+              margin: const EdgeInsets.symmetric(
+                horizontal: 24,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 16,
+                    ),
+                    margin: const EdgeInsets.only(
+                      right: 16,
+                    ),
+                    child: const Text(
+                      'Jenis Laporan',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: InputDecorator(
+                      decoration: const InputDecoration(
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(8),
+                          ),
+                          borderSide: BorderSide.none,
+                        ),
+                        filled: true,
+                        fillColor: Colors.white,
+                        contentPadding: EdgeInsets.all(8),
+                      ),
+                      child: DropdownButtonHideUnderline(
+                        child: DropdownButton(
+                          value: 'absensi',
+                          isDense: true,
+                          isExpanded: true,
+                          items: const [
+                            DropdownMenuItem(
+                              value: 'absensi',
+                              child: Text('Absensi Santri'),
+                            ),
+                            DropdownMenuItem(
+                              value: 'nilai',
+                              child: Text('Nilai Harian Santri'),
+                            ),
+                            DropdownMenuItem(
+                              value: 'kbm',
+                              child: Text('Harian KBM Santri'),
+                            ),
+                          ],
+                          onChanged: (newValue) {
+                            setState(() {});
+                          },
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 24,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    padding: const EdgeInsets.symmetric(vertical: 16),
+                    child: Row(
+                      children: [
+                        Container(
+                          width: 50,
+                          child: Text(
+                            'Tgl.',
+                            style: TextStyle(
+                              color: ColorAsset.GREEN,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w700,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                        Container(
+                          width: 1,
+                          height: 20,
+                          color: Colors.black,
+                          margin: const EdgeInsets.symmetric(horizontal: 5),
+                        ),
+                        Expanded(
+                          child: Text(
+                            'Status',
+                            style: TextStyle(
+                              color: ColorAsset.GREEN,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w700,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                        Container(
+                          width: 1,
+                          height: 20,
+                          color: Colors.black,
+                          margin: const EdgeInsets.symmetric(horizontal: 5),
+                        ),
+                        Expanded(
+                          child: Text(
+                            'Keterangan',
+                            style: TextStyle(
+                              color: ColorAsset.GREEN,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w700,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Expanded(
+                    child: ListView.builder(
+                      // shrinkWrap: true,
+                      // physics: const NeverScrollableScrollPhysics(),
+                      itemCount: 20,
+                      itemBuilder: (context, index) {
+                        return Container(
+                          padding: const EdgeInsets.only(bottom: 16),
+                          child: Row(
+                            children: [
+                              Container(
+                                width: 50,
+                                child: Text(
+                                  '01/01',
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w700,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
+                              ),
+                              Container(
+                                width: 1,
+                                height: 20,
+                                color: Colors.white,
+                                margin:
+                                    const EdgeInsets.symmetric(horizontal: 5),
+                              ),
+                              Expanded(
+                                child: Text(
+                                  'Hadir',
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w700,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
+                              ),
+                              Container(
+                                width: 1,
+                                height: 20,
+                                color: Colors.white,
+                                margin:
+                                    const EdgeInsets.symmetric(horizontal: 5),
+                              ),
+                              Expanded(
+                                child: Text(
+                                  'Hadir',
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w700,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
+                              ),
+                            ],
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
